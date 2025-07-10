@@ -9,5 +9,7 @@ namespace Events
 	public:
 		void pollEvents(RenderWindow* gameWindow);
 		bool isKeyPressed(Keyboard::Key key);
+		bool isLeftMouseButtonPressed();
+
 	};
 }

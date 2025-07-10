@@ -1,6 +1,7 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 
+
 using namespace sf;
 namespace Core
 {
@@ -17,7 +18,8 @@ namespace Core
 		void initialize();
 		RenderWindow* getGameWindow();
 		bool isGameRunning();
-		void render();
+		void clearGameWindow();
+		void displayGameWindow();
 	};
 
 }
