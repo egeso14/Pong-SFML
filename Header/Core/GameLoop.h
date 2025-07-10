@@ -1,5 +1,6 @@
 #include "../../Header/Core/GameWindowManager.h"
 #include "../../Header/Event/EventManager.h"
+#include "../Gameplay/GameplayManager.h"
 
 
 namespace Core
@@ -9,6 +10,7 @@ namespace Core
 	private:
 		Events::EventManager* eventManager;
 		GameWindowManager* gameWindowManager;
+		Gameplay::GameplayManager* gameplayManager;
 
 	public:
 		void initialize();

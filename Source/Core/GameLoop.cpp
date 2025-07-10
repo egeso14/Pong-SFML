@@ -6,6 +6,8 @@ namespace Core
 	{
 		gameWindowManager = new GameWindowManager();
 		eventManager = new Events::EventManager();
+		gameplayManager = new Gameplay::GameplayManager();
+		
 		gameWindowManager->initialize();
 	}
 	bool GameLoop::isGameRunning()
@@ -19,6 +21,7 @@ namespace Core
 	void GameLoop::render()
 	{
 		gameWindowManager->clearGameWindow();
+		gameplayManager->render(gameWindowManager->getGameWindow());
 		gameWindowManager->displayGameWindow();
 	}
 	void GameLoop::update()
