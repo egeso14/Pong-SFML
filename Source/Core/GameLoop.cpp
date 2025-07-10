@@ -29,6 +29,7 @@ namespace Core
 		// Update game logic here
 		// For example, update game objects, check collisions, etc.
 		// This is a placeholder for future updates.
+		gameplayManager->update();
 	}
 }
 

@@ -2,9 +2,10 @@
 
 namespace Gameplay
 {
-	GameplayManager::GameplayManager()
+	GameplayManager::GameplayManager(Events::EventManager* manager)
 	{
 		initialize();
+		event_manager = manager;
 	}
 
 	void GameplayManager::initialize()
@@ -19,5 +20,14 @@ namespace Gameplay
 		player1_paddle->render(game_window);
 		player2_paddle->render(game_window);
 		ball->render(game_window);
+	}
+
+	void GameplayManager::update()
+	{
+		ball->update();
+		player1_paddle->update(event_manager->isKeyPressed(Keyboard::W),
+			event_manager->isKeyPressed(Keyboard::S));
+		player2_paddle->update(event_manager->isKeyPressed(Keyboard::Up),
+			event_manager->isKeyPressed(Keyboard::Down));
 	}
 }

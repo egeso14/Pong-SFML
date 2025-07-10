@@ -25,4 +25,14 @@ namespace Gameplay
 	{
 		game_window->draw(pong_ball_sprite);
 	}
+
+	void Ball::move()
+	{
+		pong_ball_sprite.move(velocity);
+	}
+
+	void Ball::update()
+	{
+		move();
+	}
 }

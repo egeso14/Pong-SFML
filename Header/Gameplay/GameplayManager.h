@@ -1,6 +1,7 @@
 #pragma once
 #include "../../Header/Entities/Paddle.h"
 #include "../../Header/Entities/Ball.h"
+#include "../Event/EventManager.h"
 
 namespace Gameplay
 {
@@ -17,9 +18,11 @@ namespace Gameplay
 		Paddle* player1_paddle;
 		Paddle* player2_paddle;
 		Ball* ball;
+
+		Events::EventManager* event_manager;
 		void initialize();
 	public:
-		GameplayManager();
+		GameplayManager(Events::EventManager* manager);
 		void render(sf::RenderWindow* game_window);
 		void update();
 
