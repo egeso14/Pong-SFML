@@ -33,6 +33,9 @@ namespace Gameplay
 		const float bottom_position_x = 0.0f;
 		const float bottom_position_y = vertical_boundary_height - horizontal_boundary_height;
 
+		const float top_boundary = 20.0f;
+		const float bottom_boundary = 700.0f;
+
 		//Boundary Colors
 		const Color boundary_color = Color::Blue;
 		const Color center_line_color = Color::White;
