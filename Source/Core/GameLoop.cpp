@@ -6,7 +6,7 @@ namespace Core
 	{
 		gameWindowManager = new GameWindowManager();
 		eventManager = new Events::EventManager();
-		gameplayManager = new Gameplay::GameplayManager();
+		gameplayManager = new Gameplay::GameplayManager(eventManager);
 		
 		gameWindowManager->initialize();
 	}

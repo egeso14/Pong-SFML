@@ -2,6 +2,7 @@
 #include "../../Header/Entities/Paddle.h"
 #include "../../Header/Entities/Ball.h"
 #include "../Event/EventManager.h"
+#include "../../Header/Entities/Boundary.h"
 
 namespace Gameplay
 {
@@ -18,6 +19,7 @@ namespace Gameplay
 		Paddle* player1_paddle;
 		Paddle* player2_paddle;
 		Ball* ball;
+		Boundary* boundary;
 
 		Events::EventManager* event_manager;
 		void initialize();
