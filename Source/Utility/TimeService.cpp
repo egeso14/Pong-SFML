@@ -2,6 +2,15 @@
 
 namespace Utility
 {
+    TimeService* TimeService::getInstance()
+    {
+        if  (instance == nullptr)
+        {
+            instance = new TimeService();
+            instance->initialize();
+		}
+		return instance;
+    }
     void TimeService::initialize()
     {
         previous_time = std::chrono::steady_clock::now();

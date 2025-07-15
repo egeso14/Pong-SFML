@@ -1,18 +1,20 @@
 #include "../../Header/Gameplay/GameplayManager.h"
 
+
 namespace Gameplay
 {
 	GameplayManager::GameplayManager(Events::EventManager* manager)
 	{
 		initialize();
 		event_manager = manager;
+		time_service = Utility::TimeService::getInstance();
 	}
 
 	void GameplayManager::initialize()
 	{
 		player1_paddle = new Paddle(player1_position_x, player1_position_y);
 		player2_paddle = new Paddle(player2_position_x, player2_position_y);
-		ball = new Ball();
+		ball = new Ball(player1_paddle->getPaddleSprite(), player2_paddle->getPaddleSprite());
 		boundary = new Boundary();
 	}
 
@@ -26,6 +28,7 @@ namespace Gameplay
 
 	void GameplayManager::update()
 	{
+		time_service->update();
 		ball->update();
 		player1_paddle->update(event_manager->isKeyPressed(Keyboard::W),
 			event_manager->isKeyPressed(Keyboard::S));

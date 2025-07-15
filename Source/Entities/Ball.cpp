@@ -1,4 +1,5 @@
 #include "../../Header/Entities/Ball.h"
+#include "../../Header/Utility/TimeService.h"
 
 namespace Gameplay
 {
@@ -63,6 +64,7 @@ namespace Gameplay
 
 	Ball::Ball(RectangleShape paddle1, RectangleShape paddle2)
 	{
+		
 		this->paddle1 = paddle1;
 		this->paddle2 = paddle2;
 		loadTexture();
@@ -76,7 +78,8 @@ namespace Gameplay
 
 	void Ball::move()
 	{
-		pong_ball_sprite.move(velocity);
+		Utility::TimeService* time = Utility::TimeService::getInstance();
+		pong_ball_sprite.move(velocity * time->getDeltaTime());
 	}
 
 	void Ball::update()
