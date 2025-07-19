@@ -10,14 +10,14 @@ namespace Core
 
 	void GameWindowManager::createGameWindow()
 	{
-		/*game_window->create(
-			VideoMode(gameWindowWidth, gameWindowHeight),
-			gameTitle);*/
 		game_window->create(
+			VideoMode(gameWindowWidth, gameWindowHeight),
+			gameTitle);
+		/*game_window->create(
 			sf::VideoMode::getDesktopMode(),
 			gameTitle,
 			sf::Style::Fullscreen
-		);
+		);*/
 	}
 
 	bool GameWindowManager::isGameRunning()

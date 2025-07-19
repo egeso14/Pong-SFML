@@ -3,7 +3,8 @@
 
 namespace Gameplay
 {
-	GameplayManager::GameplayManager(Events::EventManager* manager)
+	GameplayManager::GameplayManager(Events::EventManager* manager) 
+		
 	{
 		initialize();
 		event_manager = manager;
@@ -16,6 +17,7 @@ namespace Gameplay
 		player2_paddle = new Paddle(player2_position_x, player2_position_y);
 		ball = new Ball(player1_paddle->getPaddleSprite(), player2_paddle->getPaddleSprite());
 		boundary = new Boundary();
+		ui_service = new Core::UIService();
 	}
 
 	void GameplayManager::render(sf::RenderWindow* game_window)
@@ -24,6 +26,7 @@ namespace Gameplay
 		player2_paddle->render(game_window);
 		ball->render(game_window);
 		boundary->render(game_window);
+		ui_service->render(game_window);
 	}
 
 	void GameplayManager::update()
@@ -35,4 +38,6 @@ namespace Gameplay
 		player2_paddle->update(event_manager->isKeyPressed(Keyboard::Up),
 			event_manager->isKeyPressed(Keyboard::Down));
 	}
+
+	
 }

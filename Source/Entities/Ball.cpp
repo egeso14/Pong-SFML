@@ -1,5 +1,6 @@
 #include "../../Header/Entities/Ball.h"
 #include "../../Header/Utility/TimeService.h"
+#include <iostream>
 
 namespace Gameplay
 {
@@ -14,6 +15,7 @@ namespace Gameplay
 	{
 		pong_ball_sprite.setTexture(pong_ball_texture);
 		pong_ball_sprite.setScale(scale_x, scale_y);
+		pong_ball_sprite.setOrigin(radius, radius); // Set origin to center of the ball
 		pong_ball_sprite.setPosition(position_x, position_y);
 	}
 	void Ball::handlePaddleCollision()
@@ -69,6 +71,7 @@ namespace Gameplay
 		this->paddle2 = paddle2;
 		loadTexture();
 		prepareSprite();
+	
 	}
 
 	void Ball::render(RenderWindow* game_window)
@@ -79,12 +82,16 @@ namespace Gameplay
 	void Ball::move()
 	{
 		Utility::TimeService* time = Utility::TimeService::getInstance();
-		pong_ball_sprite.move(velocity * time->getDeltaTime());
+		float deltaTime = time->getDeltaTime();
+		pong_ball_sprite.move(Vector2f(velocity.x * deltaTime * speed_constant, 
+									   velocity.y * deltaTime * speed_constant));
+		std::cout << time->getDeltaTime() << std::endl;
 	}
 
 	void Ball::update()
 	{
 		move();
+		onCollision();
 	}
 
 	void Ball::onCollision()

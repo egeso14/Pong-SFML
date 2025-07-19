@@ -18,14 +18,13 @@ namespace Gameplay
 	}
 	void Paddle::movePaddle(bool move_up_key_pressed, bool move_down_key_pressed)
 	{
-		Utility::TimeService* time = Utility::TimeService::getInstance();
-		if (move_up_key_pressed && paddle_sprite.getPosition().y > topBoundary)
+		if (move_up_key_pressed && paddle_sprite.getPosition().y > top_boundary)
 		{
-			paddle_sprite.move(0, -paddleSpeed * time->getDeltaTime());
+			paddle_sprite.move(0, -paddleSpeed * Utility::TimeService::getInstance()->getDeltaTime());
 		}
-		if (move_down_key_pressed && paddle_sprite.getPosition().y + paddle_sprite.getSize().y < bottomBoundary)
+		if (move_down_key_pressed && paddle_sprite.getPosition().y + paddle_sprite.getSize().y < bottom_boundary)
 		{
-			paddle_sprite.move(0, paddleSpeed * time->getDeltaTime());
+			paddle_sprite.move(0, paddleSpeed * Utility::TimeService::getInstance()->getDeltaTime());
 		}
 	}
 }

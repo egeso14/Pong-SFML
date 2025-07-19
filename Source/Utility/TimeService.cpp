@@ -2,14 +2,15 @@
 
 namespace Utility
 {
+    TimeService* TimeService::instance = nullptr;
+
     TimeService* TimeService::getInstance()
     {
-        if  (instance == nullptr)
+        if (instance == nullptr)
         {
-            instance = new TimeService();
-            instance->initialize();
-		}
-		return instance;
+			instance = new TimeService();
+        }
+        return instance;
     }
     void TimeService::initialize()
     {
@@ -47,5 +48,10 @@ namespace Utility
     {
         return delta_time;
     }
+
+    TimeService::TimeService()
+    {
+        initialize();
+	}
 
 }

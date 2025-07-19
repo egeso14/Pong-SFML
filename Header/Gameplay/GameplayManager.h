@@ -4,6 +4,7 @@
 #include "../Event/EventManager.h"
 #include "../../Header/Entities/Boundary.h"
 #include "../../Header/Utility/TimeService.h"
+#include "../../Header/Core/UIService.h"	
 
 namespace Gameplay
 {
@@ -21,6 +22,7 @@ namespace Gameplay
 		Paddle* player2_paddle;
 		Ball* ball;
 		Boundary* boundary;
+		Core::UIService* ui_service;
 		Utility::TimeService* time_service;
 		Events::EventManager* event_manager;
 		void initialize();
