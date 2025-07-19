@@ -50,11 +50,13 @@ namespace Gameplay
 
 		if (ball_bounds.left <= left_boundary)
 		{
-			reset();        // Player 2 scores!
+			updateLeftCollisionState(true);
+			reset();
 		}
 		else if (ball_bounds.left + ball_bounds.width >= right_boundary)
 		{
-			reset();        // Player 1 scores!
+			updateRightCollisionState(true);
+			reset();        
 		}
 	}
 
@@ -100,4 +102,21 @@ namespace Gameplay
 		handlePaddleCollision();
 		handleOutOfBoundsCollision();
 	}
+
+	bool Ball::isRightCollisionOccured() {
+		return had_right_collision;
+	}
+
+	void Ball::updateRightCollisionState(bool value) {
+		had_right_collision = value;
+	}
+
+	bool Ball::isLeftCollisionOccured() {
+		return had_left_collision;
+	}
+
+	void Ball::updateLeftCollisionState(bool value) {
+		had_left_collision = value;
+	}
+
 }

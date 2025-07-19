@@ -30,6 +30,8 @@ namespace Gameplay
 		const float position_x = 640.0f;
 		const float position_y = 360.0f;
 		const float speed_constant = 550;
+		bool had_left_collision;
+		bool had_right_collision;
 
 		void loadTexture();
 		void prepareSprite();
@@ -38,11 +40,17 @@ namespace Gameplay
 		void reset();
 		void handleOutOfBoundsCollision();
 		void onCollision();
+	
+
 	public:
 		Ball(RectangleShape paddle1, RectangleShape paddle2);
 		void handleBoudaryCollision();
 		void update();
 		void render(RenderWindow* game_window);
+		bool isRightCollisionOccured();
+		bool isLeftCollisionOccured();
+		void updateRightCollisionState(bool value);
+		void updateLeftCollisionState(bool value);
 
 	};
 }

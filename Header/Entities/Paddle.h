@@ -12,6 +12,7 @@ namespace Gameplay
 		const float paddle_height = 140.0f;
 		const float paddleSpeed = 0.5f;
 		const float top_boundary = 20.0f;
+		const float paddle_speed_constant = 550.0f;
 		const float bottom_boundary = 700.0f;
 		void movePaddle(bool move_up_key_pressed, bool move_down_key_pressed);
 	public:
@@ -19,6 +20,8 @@ namespace Gameplay
 		void update(bool move_up_key_pressed, bool move_down_key_pressed);
 		void render(RenderWindow* game_window);
 		RectangleShape getPaddleSprite() const { return paddle_sprite; }
+		void reset(float position_x, float position_y);
+
 	};
 }
 

@@ -28,8 +28,7 @@ namespace Core
 		int player1_score = 0;
 		int player2_score = 0;
 		std::string formatScore(int score);
-		void incrementPlayer1Score();
-		void incrementPlayer2Score();
+
 		void loadFontTexture();
 		void createLeftScoreText();
 		void createRightScoreText();
@@ -37,8 +36,9 @@ namespace Core
 		UIService();
 
 		void render(RenderWindow* game_window);
-
 		void update();
-		
+		void incrementPlayer1Score();
+		void incrementPlayer2Score();
+
 	};
 }

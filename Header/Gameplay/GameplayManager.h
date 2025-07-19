@@ -26,10 +26,11 @@ namespace Gameplay
 		Utility::TimeService* time_service;
 		Events::EventManager* event_manager;
 		void initialize();
+		void resetPlayers();
 	public:
 		GameplayManager(Events::EventManager* manager);
 		void render(sf::RenderWindow* game_window);
 		void update();
-
+		void UpdateScore();
 	};
 } // namespace Gameplay
