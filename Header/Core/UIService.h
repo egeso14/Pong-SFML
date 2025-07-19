@@ -26,12 +26,19 @@ namespace Core
 		float right_score_position_y = 30.0f;
 
 		int player1_score = 0;
-
-	public:
-		UIService();
+		int player2_score = 0;
+		std::string formatScore(int score);
+		void incrementPlayer1Score();
+		void incrementPlayer2Score();
 		void loadFontTexture();
 		void createLeftScoreText();
 		void createRightScoreText();
+	public:
+		UIService();
+
 		void render(RenderWindow* game_window);
+
+		void update();
+		
 	};
 }

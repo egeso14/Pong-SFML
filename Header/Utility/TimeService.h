@@ -20,7 +20,6 @@ namespace Utility
 	public:
 		static TimeService* getInstance();
 		void update();
-		
 		float getDeltaTime();
 	};
 }

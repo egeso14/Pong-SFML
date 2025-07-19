@@ -24,6 +24,12 @@ namespace Core
 		left_score_text.setPosition(left_score_postion_x, left_score_postion_y);
 	}
 
+	void UIService::update()
+	{
+		left_score_text.setString(formatScore(player1_score));
+		right_score_text.setString(formatScore(player2_score));
+	}
+
 	void UIService::createRightScoreText()
 	{
 		right_score_text.setFont(font);
@@ -37,5 +43,20 @@ namespace Core
 	{
 		game_window->draw(left_score_text);
 		game_window->draw(right_score_text); // Assuming you meant to draw right score text here
+	}
+
+	std::string UIService::formatScore(int score)
+	{
+		return (score < 10 ? "0" : "") + std::to_string(score);
+	}
+
+	void UIService::incrementPlayer1Score()
+	{
+		player1_score++;
+	}
+
+	void UIService::incrementPlayer2Score()
+	{
+		player2_score++;
 	}
 }
